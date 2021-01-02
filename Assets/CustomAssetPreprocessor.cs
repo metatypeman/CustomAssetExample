@@ -1,47 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
-public class CustomAssetPreprocessor : AssetPostprocessor
-{
-    //void OnPreprocessAsset()
-    //{
-    //    Debug.Log($"OnPreprocessAsset assetPath = {assetPath}");
+//public class CustomAssetPreprocessor : AssetPostprocessor
+//{
+//    //void OnPreprocessAsset()
+//    //{
+//    //    Debug.Log($"OnPreprocessAsset assetPath = {assetPath}");
 
-    //    //var obj = AssetDatabase.LoadAssetAtPath(assetPath, typeof(Object));
+//    //    //var obj = AssetDatabase.LoadAssetAtPath(assetPath, typeof(Object));
 
-    //    //Debug.Log($"OnPreprocessAsset: {obj?.GetType()?.FullName}");
+//    //    //Debug.Log($"OnPreprocessAsset: {obj?.GetType()?.FullName}");
 
-    //    if(assetPath.EndsWith(".npc"))
-    //    {
-    //        var text = new TextAsset();
+//    //    if(assetPath.EndsWith(".npc"))
+//    //    {
+//    //        var text = new TextAsset();
 
-    //        context.AddObjectToAsset(assetPath, text);
-    //        context.SetMainObject(text);
+//    //        context.AddObjectToAsset(assetPath, text);
+//    //        context.SetMainObject(text);
 
-    //        //AssetDatabase.CreateAsset(text, assetPath);
-    //    }
-    //}
+//    //        //AssetDatabase.CreateAsset(text, assetPath);
+//    //    }
+//    //}
 
-    static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
-    {
-        foreach (string str in importedAssets)
-        {
-            Debug.Log($"Reimported Asset: {str}");
+//    static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+//    {
+//        foreach (string str in importedAssets)
+//        {
+//            Debug.Log($"Reimported Asset: {str}");
 
-            var obj = AssetDatabase.LoadAssetAtPath(str, typeof(Object));
+//            var obj = AssetDatabase.LoadAssetAtPath(str, typeof(Object));
 
-            Debug.Log($"Reimported Asset: {obj?.GetType()?.FullName}");
-        }
-        foreach (string str in deletedAssets)
-        {
-            Debug.Log("Deleted Asset: " + str);
-        }
+//            Debug.Log($"Reimported Asset: {obj?.GetType()?.FullName}");
+//        }
+//        foreach (string str in deletedAssets)
+//        {
+//            Debug.Log("Deleted Asset: " + str);
+//        }
 
-        for (int i = 0; i < movedAssets.Length; i++)
-        {
-            Debug.Log("Moved Asset: " + movedAssets[i] + " from: " + movedFromAssetPaths[i]);
-        }
-    }
-}
+//        for (int i = 0; i < movedAssets.Length; i++)
+//        {
+//            Debug.Log("Moved Asset: " + movedAssets[i] + " from: " + movedFromAssetPaths[i]);
+//        }
+//    }
+//}

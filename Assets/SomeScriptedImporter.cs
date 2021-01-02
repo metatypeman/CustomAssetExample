@@ -1,15 +1,19 @@
-﻿using UnityEditor;
+﻿using System.IO;
+#if UNITY_EDITOR
+using UnityEditor;
 using UnityEditor.Experimental.AssetImporters;
+#endif
 using UnityEngine;
 
 namespace Assets
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(SomeScriptedImporter))]
     [CanEditMultipleObjects]
     public class SomeImporterEditor : ScriptedImporterEditor
     {
         protected override bool needsApplyRevert => false;
-        public override bool showImportedObject => false;
+        //public override bool showImportedObject => false;
 
         public override void OnInspectorGUI()
         {
@@ -17,6 +21,7 @@ namespace Assets
         }
     }
 
+    [CreateAssetMenu]
     public class SomeObject: ScriptableObject
     {
         
@@ -27,7 +32,7 @@ namespace Assets
     {
         public override void OnImportAsset(AssetImportContext ctx)
         {
-            Debug.Log($"OnImportAsset ctx.assetPath = {ctx.assetPath}");
+            //Debug.Log($"OnImportAsset ctx.assetPath = {ctx.assetPath}");
 
             var tex = new Texture2D(2, 2);
 
@@ -62,9 +67,11 @@ namespace Assets
             tex.LoadImage(pngBytes);
 
             var obj = ObjectFactory.CreateInstance<SomeObject>();
+            obj.name = Path.GetFileNameWithoutExtension(ctx.assetPath);
 
             ctx.AddObjectToAsset("main", obj, tex);
             ctx.SetMainObject(obj);
         }
     }
+#endif
 }

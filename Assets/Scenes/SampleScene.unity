@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SomeObject: {fileID: -6750239444755058063, guid: d8cb56cfda2428145a67f0998f13b7f1,
     type: 3}
+  App: {fileID: 3158342965044464750, guid: e18e91262ab488642a47cc384fe10eb7, type: 3}
 --- !u!65 &915602059
 BoxCollider:
   m_ObjectHideFlags: 0

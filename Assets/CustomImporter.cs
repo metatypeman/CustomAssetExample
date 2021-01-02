@@ -4,12 +4,15 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Experimental.AssetImporters;
+#endif
 using UnityEngine;
 
 namespace Assets
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(CustomImporter))]
     [CanEditMultipleObjects]
     public class CustomImporterEditor : ScriptedImporterEditor
@@ -29,11 +32,12 @@ namespace Assets
     {
         public override void OnImportAsset(AssetImportContext ctx)
         {
-            Debug.Log($"OnImportAsset ctx.assetPath = {ctx.assetPath}");
+            //Debug.Log($"OnImportAsset ctx.assetPath = {ctx.assetPath}");
 
             GameObject root = ObjectFactory.CreateGameObject(Path.GetFileNameWithoutExtension(ctx.assetPath));
             ctx.AddObjectToAsset("main", root);
             ctx.SetMainObject(root);
         }
     }
+#endif
 }

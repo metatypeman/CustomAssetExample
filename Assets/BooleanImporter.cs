@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
+#endif
 
 namespace Assets
 {
