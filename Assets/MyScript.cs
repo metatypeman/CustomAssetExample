@@ -15,6 +15,7 @@ public class MyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        QuickLogger.Log($"Application.dataPath = {Application.dataPath}");
 #if UNITY_EDITOR
         Debug.Log($"Application.dataPath = {Application.dataPath}");
 
