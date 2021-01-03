@@ -8,26 +8,7 @@ using UnityEngine;
 namespace Assets
 {
 #if UNITY_EDITOR
-    [CustomEditor(typeof(SomeScriptedImporter))]
-    [CanEditMultipleObjects]
-    public class SomeImporterEditor : ScriptedImporterEditor
-    {
-        protected override bool needsApplyRevert => false;
-        //public override bool showImportedObject => false;
-
-        public override void OnInspectorGUI()
-        {
-            EditorGUILayout.LabelField("Hi", EditorStyles.boldLabel);
-        }
-    }
-
-    [CreateAssetMenu]
-    public class SomeObject: ScriptableObject
-    {
-        
-    }
-
-    [ScriptedImporter(0, ".someFile")]
+    [ScriptedImporter(0, ".someFile", AutoSelect = true)]
     public class SomeScriptedImporter : ScriptedImporter
     {
         public override void OnImportAsset(AssetImportContext ctx)
@@ -68,7 +49,7 @@ namespace Assets
 
             var obj = ObjectFactory.CreateInstance<SomeObject>();
             obj.name = Path.GetFileNameWithoutExtension(ctx.assetPath);
-
+            obj.FullName = ctx.assetPath;
             ctx.AddObjectToAsset("main", obj, tex);
             ctx.SetMainObject(obj);
         }

@@ -7,6 +7,20 @@ using UnityEngine;
 
 //public class CustomAssetPreprocessor : AssetPostprocessor
 //{
+//    //[InitializeOnLoadMethod]
+//    //static void InitPresetDependencies()
+//    //{
+//    //    var allAssetPaths = AssetDatabase.GetAllAssetPaths();
+
+//    //    foreach(var path in allAssetPaths)
+//    //    {
+//    //        if(path.EndsWith(".someFile"))
+//    //        {
+//    //            AssetDatabase.LoadAssetAtPath(path, typeof(Object));
+//    //        }
+//    //    }
+//    //}
+
 //    //void OnPreprocessAsset()
 //    //{
 //    //    Debug.Log($"OnPreprocessAsset assetPath = {assetPath}");
