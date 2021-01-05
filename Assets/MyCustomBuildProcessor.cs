@@ -24,7 +24,8 @@ namespace Assets
         /// <param name="report"></param>
         public void OnPostprocessBuild(BuildReport report)
         {
-            Debug.Log(report.summary.outputPath);
+            Debug.Log($"report.summary.outputPath = {report.summary.outputPath}");
+            Debug.Log($"Application.dataPath = {Application.dataPath}");
         }
     }
 #endif
